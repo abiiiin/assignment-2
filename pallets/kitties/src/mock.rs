@@ -75,8 +75,8 @@ impl pallet_balances::Config for Test {
 }
 
 parameter_types! {
-	// One can owned at most 9,999 Kitties
-	pub const MaxKittyOwned: u32 = 9999;
+	// One can owned at most 20 Kitties
+	pub const MaxKittyOwned: u32 = 20;
 	pub const TokenReserved: u32 = 10;
 }
 
@@ -94,7 +94,7 @@ pub(crate) fn new_test_ext() -> sp_io::TestExternalities {
 	let mut t = frame_system::GenesisConfig::default().build_storage::<Test>().unwrap();
 	GenesisConfig {
 		balances: BalancesConfig {
-			balances: vec![(1,  10), (2,  10), (10,  100)]
+			balances: vec![(1,  10), (2,  10), (4,  100000), (10,  100)]
 		},
 		substrate_kitties: SubstrateKittiesConfig {
 			kitties: vec![
